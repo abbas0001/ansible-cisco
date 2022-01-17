@@ -1,0 +1,10 @@
+---
+
+- name: cisco
+  hosts: switches
+  gather_facts: no
+
+  tasks:
+  - name: backup running config
+    cisco.ios.ios_command:
+      commands: copy running-config ftp://192.168.110.143/switch.conf
