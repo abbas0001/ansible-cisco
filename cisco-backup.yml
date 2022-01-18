@@ -5,6 +5,26 @@
   gather_facts: no
 
   tasks:
-  - name: backup running config
+  - name: set ftp username and password
+    cisco.ios.ios_config:
+      lines:
+      - ip ftp username server1
+      - ip ftp password 741852369
+
+  - name: turn off prompt
+    cisco.ios.ios_config:
+      lines: file prompt quiet
+
+  - name: backup running-config to ftp
     cisco.ios.ios_command:
       commands: copy running-config ftp://192.168.110.143/switch.conf
+
+  - name: turn on prompt
+    cisco.ios.ios_config:
+      lines: file prompt alert
+
+  - name: delete ftp username and password
+    cisco.ios.ios_config:
+      lines:
+      - no ip ftp username server1
+      - no ip ftp password 741852369
