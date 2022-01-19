@@ -17,7 +17,7 @@
 
   - name: backup running-config to ftp
     cisco.ios.ios_command:
-      commands: copy running-config ftp://192.168.110.143/switch.conf
+      commands: copy running-config ftp://192.168.110.143/backup/{{ inventory_hostname }}/{{ inventory_hostname }}
 
   - name: turn on prompt
     cisco.ios.ios_config:
