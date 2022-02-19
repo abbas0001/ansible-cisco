@@ -1,14 +1,14 @@
 #!/bin/bash
 
-DIRS=$(find backup -type d -name "*.*.*.*")
+DIRS=$(find ~/backup -type d -name "*.*.*.*")
 for DIR in $DIRS
 do
 	COUNT=$(ls $DIR | wc -l)
-	if [ $COUNT -le 3 ]
+	if [ $COUNT -le 6 ]
 	then
-		exit 1
+		continue
 	fi
-	REMAINS=$(ls $DIR | tail -n 3)
+	REMAINS=$(ls -tr $DIR | tail -n 6)
 	mkdir $DIR/temp
 	for REMAIN in $REMAINS
 	do
