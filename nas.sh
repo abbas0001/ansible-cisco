@@ -7,13 +7,4 @@ PASS='adeli@1234'
 FILENAME=$TIME.tar
 BASEDIR=/home/headdns
 tar cf $BASEDIR/ansible-cisco/$FILENAME $BASEDIR/backup
-
-ftp -n $HOST <<END
-quote USER $USER
-quote PASS $PASS
-cd Adeli
-put $FILENAME
-quit
-END
-
-rm $FILENAME
+$BASEDIR/ansible-cisco/ftp.sh $FILENAME
