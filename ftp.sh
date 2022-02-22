@@ -8,10 +8,10 @@ FILE=$1
 ftp -n $HOST <<END
 quote USER $USER
 quote PASS $PASS
-lcd /home/headdns/ansible-cisco
+lcd ~/ansible-cisco
 cd Adeli
 put $FILE
 quit
 END
 
-rm /home/headdns/ansible-cisco/$FILE
+rm ~/ansible-cisco/$FILE
