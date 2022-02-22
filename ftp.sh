@@ -1,15 +1,15 @@
 #!/bin/bash
 
-HOST='192.168.37.10'
-USER='adeli'
-PASS='adeli@1234'
+HOST='##HERE##'
+USER='##HERE##'
+PASS='##HERE##'
 FILE=$1
 
 ftp -n $HOST <<END
 quote USER $USER
 quote PASS $PASS
 lcd ~/ansible-cisco
-cd Adeli
+cd ##HERE## ##NAS DIRECTORY TO COPY
 put $FILE
 quit
 END
