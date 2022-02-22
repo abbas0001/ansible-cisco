@@ -8,8 +8,8 @@
   - name: set ftp username and password
     cisco.ios.ios_config:
       lines:
-      - ip ftp username headdns
-      - ip ftp password 123456
+      - ip ftp username ##HERE##
+      - ip ftp password ##HERE##
 
   - name: turn off prompt
     cisco.ios.ios_config:
@@ -17,7 +17,7 @@
 
   - name: backup running-config to ftp
     cisco.ios.ios_command:
-      commands: copy running-config ftp://172.16.119.40/backup/{{ inventory_hostname }}/{{ inventory_hostname }}
+      commands: copy running-config ftp://##HERE##/backup/{{ inventory_hostname }}/{{ inventory_hostname }}
 
   - name: turn on prompt
     cisco.ios.ios_config:
@@ -26,5 +26,5 @@
   - name: delete ftp username and password
     cisco.ios.ios_config:
       lines:
-      - no ip ftp username headdns
-      - no ip ftp password 123456
+      - no ip ftp username ##HERE##
+      - no ip ftp password ##HERE##
