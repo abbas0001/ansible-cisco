@@ -5,6 +5,6 @@ HOST='192.168.37.10'
 USER='adeli'
 PASS='adeli@1234'
 FILENAME=$TIME.tar
-BASEDIR=/home/headdns
+BASEDIR=~
 tar cf $BASEDIR/ansible-cisco/$FILENAME $BASEDIR/backup
 $BASEDIR/ansible-cisco/ftp.sh $FILENAME
